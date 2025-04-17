@@ -1,0 +1,65 @@
+Git : a Version Control System
+gitHub: a place hosting repos & projects
+GIT COMMANDS:
+  CLONE: Bring a repository hosted on gitHub into my local repository 
+  ADD: Track files & changes in Git - "git add . " permet d'indexer ()"stage" tous les fichiers, nouveaux ou modifiés !!!
+  COMMIT: Save files in Git
+  PUSH: Upload git commits to a remote repository like gitHub
+  PULL: Down load changes from remote repository to local machine - The opposite of pushhows 
+  STATUS: Shows the files which have been changed
+
+ENTRER DANS GITLAB: 
+1 Dans la ligne d'adresse :  https://gitlab.com
+
+ENTRER DANS GITHUB: 
+1 Dans la ligne d'adresse :  https://github.com
+2 georges.nordon@gmail.com + 24e9443628xpn (Ne pas utiliser Google) pour se connecter
+
+Markdown :
+# TITLE
+## SUB TITLE
+*****
+CLONE
+*****
+
+  1 Au niveau du projet aller sur le bouton vert "Code", aller à "copy URL to clipboard" version "HTTPS"  et faire: 
+  2 >git git clone  + https://github.com/NORDON01/repo_demo.git
+  3 Constater que repo_demo a été créé en local
+  4 Aller dans repo_demo et taper "la" et constater la présence du répertoire caché ".git"
+
+******
+COMMIT
+******
+
+   Exemple: git commit -m "add index.html" -m "some description"
+
+*******
+SSH KEY (A CREER AVANT DE CREER UN CLONE EN LOCAL !!!)
+*******
+0 Remove existing repo: select repo, choose settings, general, danger zone
+
+1 Génèrer 2 clés   //Génère 2 clés publique et privé,
+  enter passphrase:!!"Entrez"!!
+  vérifier que les 2 clés ont bien été générées
+
+  The key fingerprint is:
+  SHA256:fIfXsj5jOAMQiMQ4RO8kGI/hFlgjc8N+u9kkRd/4pGA georges.nordon@gmail.com
+
+2 Ajouter une clé à mon compte gitHub
+  cat ~/.ssh/id_ed25519.pub   //Affiche la clé publique
+  copier la clé publique
+
+3 Aller dans gitHub et cliquer sur "profile" (là où télécharger sa photo) et choisir "Ajouter une clé SSH ou GPG" 
+
+4 Pour voir le contenu de .ssh : ls -al ~/.ssh
+
+5 Pour tester la connection ssh : ssh -T git@github.com
+
+6 Créer le clone : git clone git@github.com:NORDON01/demo_repo.git
+
+*********
+SSH AGENT
+*********
+  Tester si l'agent est actif : echo $SSH_AUTH_SOCK
+  Pour démarrer l'agent: eval $(ssh-agent)
+  Pour n'avoir pas à taper la passphrase à chaque fois : ssh-add ~/.ssh/id_ed25519
